@@ -1,6 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const app = express();
+const path = require('path')
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
@@ -16,7 +17,6 @@ app.use(express.json({
 app.get('/', (req, res) => res.json({
     msg: "Welcome to the Pokedex API"
 }));
-
 
 // defining routes
 app.use('/api/users', require('./routes/users'))
